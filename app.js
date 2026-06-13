@@ -166,7 +166,7 @@ client.on(Events.InteractionCreate, async interaction => {
       .setColor(0x5865F2)
       .setTitle('Noise Education Official Links')
       .setDescription('<:Instagram:1515445149042475079> [Instagram](https://www.instagram.com/noise.education.band)\n<:Discord:1515445171335204955> [Discord](https://discord.gg/BApen2QEdk)\n')
-    await interaction.channel.send(embed);
+    await interaction.channel.send( embeds: [embed] );
     await interaction.reply({ content: 'Panel sent.', ephermal: true });
     return;
   }
