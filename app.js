@@ -123,6 +123,10 @@ const commands = [
     .setName('rolemessage')
     .setDescription('Send the role selection panels into the role channel')
     .setDefaultMemberPermissions(STAFF_PERMS),
+  new SlashCommandBuilder()
+    .setName('official-links')
+    .setDescription('Send the Official Links Panel into the official-links channel')
+    .setDefaultMemberPermission(STAFF_PERMS),
 ].map(c => c.toJSON());
 
 async function registerCommands(guildId) {
@@ -157,7 +161,14 @@ client.on(Events.InteractionCreate, async interaction => {
 
   if (!interaction.isChatInputCommand()) return;
   const { commandName } = interaction;
-
+  if (commandName === 'official-links') {
+    const embed = new EmbedBuilder()
+      .setColor(0x5865F2)
+      .setTitle('Noise Education Official Links')
+      .setDescription('<:Instagram:1515445149042475079> [Instagram](https://www.instagram.com/noise.education.band)\n<:Discord:1515445171335204955> [Discord](https://discord.gg/BApen2QEdk)\n')
+    await interaction.channel.send(embed);
+    await interaction.reply({ content: 'Panel sent.', ephermal: true });
+  };
   if (commandName === 'ticketpanel') {
     const embed = new EmbedBuilder()
       .setColor(0x5865F2)
