@@ -1,0 +1,15 @@
+{
+  "name": "noise-education-bot",
+  "version": "1.0.0",
+  "description": "Noise Education Discord Bot",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.16.3",
+    "dotenv": "^16.4.5"
+  }
+}
