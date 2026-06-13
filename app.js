@@ -126,7 +126,7 @@ const commands = [
   new SlashCommandBuilder()
     .setName('official-links')
     .setDescription('Send the Official Links Panel into the official-links channel')
-    .setDefaultMemberPermission(STAFF_PERMS),
+    .setDefaultMemberPermissions(STAFF_PERMS)
 ].map(c => c.toJSON());
 
 async function registerCommands(guildId) {
