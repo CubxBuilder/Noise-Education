@@ -165,7 +165,7 @@ client.on(Events.InteractionCreate, async interaction => {
     const embed = new EmbedBuilder()
       .setColor(0x5865F2)
       .setTitle('Noise Education Official Links')
-      .setDescription('<:Instagram:1515445149042475079> [Instagram](https://www.instagram.com/noise.education.band)\n<:Discord:1515445171335204955> [Discord](https://discord.gg/BApen2QEdk)\n')
+      .setDescription('<:Instagram:1515445149042475079> [Instagram](https://www.instagram.com/noise.education.band)\n<:Discord:1515445171335204955> [Discord](https://discord.gg/BApen2QEdk)\n<:Reddit:1515641678541754440> [Reddit](https://www.reddit.com/user/noise_education/)\n')
     await interaction.channel.send({ embeds: [embed] });
     await interaction.reply({ content: 'Panel sent.', ephermal: true });
     return;
