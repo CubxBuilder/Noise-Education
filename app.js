@@ -390,21 +390,23 @@ async function handleRoleSelect(interaction) {
   if (!cat) return interaction.editReply({ content: 'Unknown category.' });
 
   const member = await interaction.guild.members.fetch(interaction.user.id).catch(() => null);
-  if (!member) return interaction.editReply({ content: 'Could not fetch your member data.' });
+  if (!member) return interaction.editReply({ content: 'Could not fetch your member data.' }, console.log("no member data"));
+  
 
   const allRoleIds = cat.options.map(o => o.value);
   const selected   = interaction.values;
 
   for (const roleId of allRoleIds) {
     if (selected.includes(roleId)) {
-      await member.roles.add(roleId).catch(() => {});
+      await member.roles.add(roleId).catch(() => {console.log("error")});
     } else {
-      await member.roles.remove(roleId).catch(() => {});
+      await member.roles.remove(roleId).catch(() => {console.log("error")});
     }
   }
 
   const names = selected.map(id => cat.options.find(o => o.value === id)?.label).filter(Boolean);
   return interaction.editReply({ content: names.length ? `Roles updated: ${names.join(', ')}` : 'All roles in this category removed.' });
+  console.log("role selected")
 }
 
 client.on(Events.MessageDelete, async msg => {
