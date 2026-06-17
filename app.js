@@ -400,9 +400,9 @@ async function handleRoleSelect(interaction) {
   for (const roleId of allRoleIds) {
     console.log(roleId)
     if (selected.includes(roleId)) {
-      await member.roles.add(roleId).catch(() => {console.log("error1")});
+      await member.roles.add(roleId).catch(err => console.log("error1", roleId, err.message));
     } else {
-      await member.roles.remove(roleId).catch(() => {console.log("error2")});
+      await member.roles.remove(roleId).catch(err => console.log("error2", roleId, err.message));
     }
   }
 
