@@ -394,6 +394,7 @@ async function handleRoleSelect(interaction) {
   
 
   const allRoleIds = cat.options.map(o => o.value);
+  console.log(allRoleIds)
   const selected   = interaction.values;
 
   for (const roleId of allRoleIds) {
